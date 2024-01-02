@@ -22,7 +22,7 @@
             </div>
 
             <div class="bg-white p-4 shadow rounded-lg">
-                <h2 class="text-lg font-semibold mb-4">Chart 3: Remove Data Outline</h2>
+                <h2 class="text-lg font-semibold mb-4">Chart 3: Remove Bar Outlines</h2>
                 {!! $chart3->render() !!}
             </div>
 

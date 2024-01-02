@@ -85,7 +85,7 @@ class TufteChartController extends Controller
                     },
                     title: {
                         display: true,
-                        text: 'User Registrations',
+                        text: 'Monthly User Registrations',
                         font: {
                             size: 16
                         }
@@ -133,7 +133,7 @@ class TufteChartController extends Controller
             ->labels($labels)
             ->datasets([
                 [
-                    'label' => 'User Registrations',
+                    'label' => 'Monthly User Registrations',
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
                     'borderColor' => 'rgba(128, 128, 128, 1)',
                     'borderWidth' => 1,
@@ -185,7 +185,7 @@ class TufteChartController extends Controller
                     },
                     title: {
                         display: true,
-                        text: 'User Registrations',
+                        text: 'Monthly User Registrations',
                         font: {
                             size: 16
                         }
@@ -223,7 +223,7 @@ class TufteChartController extends Controller
             ->labels($labels)
             ->datasets([
                 [
-                    'label' => 'User Registrations',
+                    'label' => 'Monthly User Registrations',
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
                     'data' => $data
                 ]
@@ -260,7 +260,7 @@ class TufteChartController extends Controller
                     },
                     title: {
                         display: true,
-                        text: 'User Registrations',
+                        text: 'Monthly User Registrations',
                         font: {
                             size: 16
                         }
@@ -319,7 +319,7 @@ class TufteChartController extends Controller
                     },
                     title: {
                         display: true,
-                        text: 'User Registrations',
+                        text: 'Monthly User Registrations',
                         font: {
                             size: 16
                         }
@@ -358,7 +358,7 @@ private function createChart5()
         ->labels($labels)
         ->datasets([
             [
-                'label' => 'User Registrations',
+                'label' => 'Monthly User Registrations',
                 'backgroundColor' => 'rgba(200, 200, 200, 1)',
                 'data' => $data
             ]
@@ -405,7 +405,7 @@ private function createChart5()
                 },
                 title: {
                     display: true,
-                    text: 'User Registrations',
+                    text: 'Monthly User Registrations',
                     font: {
                         size: 16
                     }
@@ -448,7 +448,7 @@ private function createChart6()
                     border:{
                         display: true,
                         color: 'rgba(200, 200, 200, 0.8)',
-                        width: 3,
+                        width: 4,
 
                     },
 
@@ -478,7 +478,7 @@ private function createChart6()
                 },
                 title: {
                     display: true,
-                    text: 'User Registrations',
+                    text: 'Monthly User Registrations',
                     font: {
                         size: 16
                     }
