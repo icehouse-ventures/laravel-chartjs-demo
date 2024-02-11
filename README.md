@@ -18,6 +18,13 @@ The repo also features Tufte chart examples, which are designed to display compl
 
 To get started with the Laravel Chartjs package demo, clone the repository and follow the setup instructions provided in the [Laravel Chart.js User Guide](https://icehouse-ventures.github.io/laravel-chartjs/). Explore the various chart examples to learn how to integrate and customize charts in your own Laravel applications.
 
+You can run the app using php artisan serve. In which case the demo pages will be available at:
+
+/legacy
+/user/chart
+/tufte/charts
+/stephenfew/charts
+
 ## Contributions
 
 Contributions are welcome! If you have any improvements or additional examples, please feel free to submit a pull request.

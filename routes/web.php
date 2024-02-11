@@ -82,3 +82,5 @@ Route::get('/user/chart', 'App\Http\Controllers\UserController@showChart');
 
 Route::get('/tufte/charts', 'App\Http\Controllers\TufteChartController@showCharts');
 
+Route::get('/stephenfew/charts', 'App\Http\Controllers\StephenFewChartController@showCharts');
+
