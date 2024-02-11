@@ -10,20 +10,25 @@ Included in this repository is a `UserController` example that illustrates how t
 
 ### Chart Design: Tufte Data-Ink Ratio Examples
 
-The repo also features Tufte chart examples, which are designed to display complex data in a clear and beautiful way, following the principles of Edward Tufte. These examples help in creating elegant and informative charts that enhance the data presentation, while also demonstrating how to apply the data-ink ratio concept using Chart.js design options to make your charts as informative as possible with minimal distractions.
+The demo repository features Tufte chart examples, which are designed to display complex data in a clear and beautiful way, following the principles of Edward Tufte. These examples help in creating elegant and informative charts that enhance the data presentation, while also demonstrating how to apply the data-ink ratio concept using Chart.js design options to make your charts as informative as possible with minimal distractions.
 
 ![Tufte Chart Progression Examples](public/tufte-chart-progression-examples.png)
+
+### Chart Design: Stephen Few Chart Makeover Examples
+
+This repository also includes examples of Stephen Few chart makeovers, which are designed to present complex data in a clear and engaging manner, adhering to the principles of Stephen Few, an expert in dashboard and chart design. These examples embody Few's philosophy of simplicity and clarity in data visualization, emphasizing the elimination of unnecessary elements to focus on the data itself. They serve as a practical guide for creating elegant and informative charts that enhance data presentation. They demonstrate how to apply Stephen Few's design principles using Chart.js to make your graphs as informative as possible with minimal distractions, in line with his "less is more" approach to data visualization.
+![Stephen Few Makeover Examples](public/stephen-few-makeover.png)
 
 ## Getting Started
 
 To get started with the Laravel Chartjs package demo, clone the repository and follow the setup instructions provided in the [Laravel Chart.js User Guide](https://icehouse-ventures.github.io/laravel-chartjs/). Explore the various chart examples to learn how to integrate and customize charts in your own Laravel applications.
 
-You can run the app using php artisan serve. In which case the demo pages will be available at:
+You can run the app using php artisan serve or any local development environment such as Valet or Herd. In which, case the demo pages will be available at:
 
-/legacy
-/user/chart
-/tufte/charts
-/stephenfew/charts
+- /legacy
+- /user/chart
+- /tufte/charts
+- /stephenfew/charts
 
 ## Contributions
 
