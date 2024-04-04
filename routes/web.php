@@ -85,3 +85,4 @@ $chartjs = app()->chartjs
 
     Route::get('/stephenfew/charts', 'App\Http\Controllers\StephenFewChartController@showCharts');
 
+    Route::get('/livewire/chart', 'App\Http\Controllers\LiveWireDemoController@showChart');

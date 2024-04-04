@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'delivery' => 'CDN',
+    'delivery' => 'npm',
 
     /*
     |--------------------------------------------------------------------------
@@ -73,6 +73,6 @@ return [
     |
     */
 
-    'custom_view' => true,
+    'custom_view' => false,
 
 ];
