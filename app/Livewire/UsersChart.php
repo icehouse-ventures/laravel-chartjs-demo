@@ -1,21 +1,34 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Livewire;
 
 use App\Models\User;
-use Carbon\Carbon;
+use Livewire\Component;
 use Carbon\CarbonPeriod;
-use Illuminate\Support\Collection;
+use Illuminate\Support\Carbon;
+use Livewire\Attributes\Computed;
 
-class UserController extends \App\Http\Controllers\Controller
+class UsersChart extends Component
 {
+    public $start;
 
-    public function showChart()
+    public $datasets;
+
+    public function mount()
     {
-    
-        $start = Carbon::parse(User::min("created_at"));
+        $this->start = Carbon::parse(User::min("created_at"))->toDateString();
+    }
+
+    #[Computed]
+    public function carbonStart()
+    {
+        return Carbon::parse($this->start);
+    }
+
+    public function getData()
+    {
         $end = Carbon::now();
-        $period = CarbonPeriod::create($start, "1 month", $end);
+        $period = CarbonPeriod::create($this->carbonStart, "1 month", $end);
 
         $usersPerMonth = collect($period)->map(function ($date) {
             $endDate = $date->copy()->endOfMonth();
@@ -29,19 +42,28 @@ class UserController extends \App\Http\Controllers\Controller
         $data = $usersPerMonth->pluck("count")->toArray();
         $labels = $usersPerMonth->pluck("month")->toArray();
 
-        $chart = app()
-            ->chartjs->name("UserRegistrationsChart")
-            ->type("line")
-            ->size(["width" => 400, "height" => 200])
-            ->labels($labels)
-            ->datasets([
+        $this->datasets = [
+            'datasets' => [
                 [
                     "label" => "User Registrations",
                     "backgroundColor" => "rgba(38, 185, 154, 0.31)",
                     "borderColor" => "rgba(38, 185, 154, 0.7)",
                     "data" => $data
                 ]
-            ])
+            ],
+            'labels' => $labels
+        ];
+    }
+
+    #[Computed]
+    public function chart()
+    {
+        return app()
+            ->chartjs->name("UserRegistrationsChart")
+            ->livewire()
+            ->model("datasets")
+            ->type("line")
+            ->size(["width" => 400, "height" => 200])
             ->options([
                 'scales' => [
                     'x' => [
@@ -49,7 +71,7 @@ class UserController extends \App\Http\Controllers\Controller
                         'time' => [
                             'unit' => 'month'
                         ],
-                        'min' => $start->format("Y-m-d"),
+                        'min' => $this->carbonStart->format("Y-m-d"),
                     ]
                 ],
                 'plugins' => [
@@ -59,8 +81,12 @@ class UserController extends \App\Http\Controllers\Controller
                     ]
                 ]
             ]);
+    }
 
-        return view("chart", compact("chart"));
+    public function render()
+    {
+        $this->getData();
 
+        return view('livewire.users-chart');
     }
 }
