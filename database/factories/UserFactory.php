@@ -41,4 +41,13 @@ class UserFactory extends Factory
             'email_verified_at' => null,
         ]);
     }
+
+    public function randomCreatedAt(): Factory
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'created_at' => fake()->dateTime(),
+            ];
+        });
+    }
 }
