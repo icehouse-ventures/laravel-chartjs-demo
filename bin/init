@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Install composer deps
+docker-compose run apache composer install
+
+# Install node deps
+docker-compose run node npm install
+
+# Generate key
+docker-compose run apache php artisan key:generate
+
+# Migrations
+docker-compose run apache php artisan migrate
+
+# Seed database
+docker-compose run apache php artisan db:seed
+
+# Build Vite
+docker-compose run --service-ports vite npm run build

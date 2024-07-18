@@ -1,0 +1,48 @@
+services:
+  apache:
+    build:
+      context: ./docker/apache
+      args:
+        - APP_ENV=${APP_ENV}
+    container_name: laravel-chartjs-apache
+    environment:
+      - APP_ENV=${APP_ENV}
+      - COMPOSER_MEMORY_LIMIT=4G
+    ports:
+      - 80:80
+    labels:
+      - dev.orbstack.domains=laravel-chartjs.local
+    networks:
+      - laravel-chartjs-network
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+
+  node:
+    build:
+      context: ./docker/node
+    container_name: laravel-chartjs-node
+    networks:
+      - laravel-chartjs-network
+    volumes:
+      - .:/app
+    working_dir: /app
+
+  vite:
+    build:
+      context: ./docker/node
+    container_name: laravel-chartjs-vite
+    ports:
+      - 5173:5173
+    networks:
+      - laravel-chartjs-network
+    volumes:
+      - .:/app
+    working_dir: /app
+
+volumes:
+  laravel-chartjs-composer:
+
+networks:
+  laravel-chartjs-network:
+    driver: bridge

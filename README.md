@@ -30,6 +30,38 @@ You can run the app using php artisan serve or any local development environment
 - /tufte/charts
 - /stephenfew/charts
 
+## Quick start with Docker
+
+To run the examples locally via Docker (if you're on MacOS, [use Orbstack](https://orbstack.dev/) to solve file system performance woes!), first build the services:
+
+```
+docker-compose build
+```
+
+Copy the `.env.example` file:
+
+```
+cp .env.example .env
+```
+
+Then start the services:
+
+```
+./bin/up
+```
+
+Run the init command to install dependencies etc:
+
+```
+./bin/init
+```
+
+When you're done, shut down the services with:
+
+```
+./bin/down
+```
+
 ## Contributions
 
 Contributions are welcome! If you have any improvements or additional examples, please feel free to submit a pull request.

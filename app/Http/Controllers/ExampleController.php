@@ -7,7 +7,7 @@ use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Collection;
 
-class exampleController extends \App\Http\Controllers\Controller
+class ExampleController extends Controller
 {
 
     public function show()
