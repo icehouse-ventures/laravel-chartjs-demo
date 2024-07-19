@@ -9,6 +9,9 @@ docker-compose run node npm install
 # Generate key
 docker-compose run apache php artisan key:generate
 
+# Create SQLite database
+docker-compose run apache touch database/database.sqlite
+
 # Migrations
 docker-compose run apache php artisan migrate
 
