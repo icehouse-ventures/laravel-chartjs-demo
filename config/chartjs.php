@@ -73,6 +73,6 @@ return [
     |
     */
 
-    'custom_view' => true,
+    'custom_view' => false,
 
 ];
