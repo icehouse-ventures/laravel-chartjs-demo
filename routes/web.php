@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\UsersChart;
+use App\Livewire\LivewireUsersDemo;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -158,6 +159,8 @@ Route::get('/vanilla-blade-multi', function() {
         'secondaryChart' => $secondaryChart,
     ]);
 });
+
+Route::get('/livewire-users-demo', LivewireUsersDemo::class);
 
 Route::get('/example', 'App\Http\Controllers\ExampleController@show');
 
