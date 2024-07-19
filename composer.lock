@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0fde2b49e2cd839cc3ba011ae9f798f8",
+    "content-hash": "894268d39f08bfe5834849188b3c2047",
     "packages": [
         {
             "name": "brick/math",
@@ -1047,17 +1047,11 @@
         },
         {
             "name": "icehouse-ventures/laravel-chartjs",
-            "version": "v1.0.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/icehouse-ventures/laravel-chartjs.git",
-                "reference": "a0bb14aaaa0e4245dbbc97142541ed2dad13a6b4"
-            },
+            "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/icehouse-ventures/laravel-chartjs/zipball/a0bb14aaaa0e4245dbbc97142541ed2dad13a6b4",
-                "reference": "a0bb14aaaa0e4245dbbc97142541ed2dad13a6b4",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/laravel-chartjs",
+                "reference": "a632e60aeb3c03001a3e77738b3373ba839a8862"
             },
             "require": {
                 "illuminate/support": "^5.1|^6.0|^7.0|^8.0|^9.0|^10.0|^11.0",
@@ -1083,7 +1077,11 @@
                     "IcehouseVentures\\LaravelChartjs\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "IcehouseVentures\\LaravelChartjs\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -1101,11 +1099,10 @@
                 "icehouseventures",
                 "laravel"
             ],
-            "support": {
-                "issues": "https://github.com/icehouse-ventures/laravel-chartjs/issues",
-                "source": "https://github.com/icehouse-ventures/laravel-chartjs/tree/v1.0.7"
-            },
-            "time": "2024-03-11T09:21:38+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "laravel/framework",
@@ -8260,7 +8257,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,

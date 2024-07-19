@@ -16,6 +16,7 @@ services:
       - laravel-chartjs-network
     volumes:
       - .:/var/www/html
+      - ../laravel-chartjs:/var/www/laravel-chartjs
     working_dir: /var/www/html
 
   node:
