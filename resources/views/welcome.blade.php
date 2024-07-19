@@ -51,6 +51,8 @@
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Other ChartJS examples</h2>
 
                                 <ul class="mt-4 text-gray-500 dark:text-gray-400 text-sm leading-relaxed" style="list-style: disc; padding: 0 0 0 24px;">
+                                    <li><a href="/vanilla-blade">Component-based initialisation in vanilla Blade files</a></li>
+                                    <li><a href="/vanilla-blade-multi">Component-based initialisation in vanilla Blade files (multiple charts)</a></li>
                                     <li><a href="/legacy">Legacy</a></li>
                                     <li><a href="/example">Example</a></li>
                                     <li><a href="/user/chart">User chart</a></li>
