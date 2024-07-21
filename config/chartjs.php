@@ -35,7 +35,7 @@ return [
     |
     */
 
-    'delivery' => 'CDN',
+    'delivery' => 'cdn',
 
     /*
     |--------------------------------------------------------------------------
@@ -58,21 +58,19 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Custom View Option
+    | Custom Chart Type Plugins
     |--------------------------------------------------------------------------
     |
-    | The custom view option allows you to specify whether the package should
-    | use a custom blade view for rendering charts. If set to 'true', the
-    | package will look for a view named 'custom-chart-template.blade.php'
-    | in the /vendor folder of your view resources. If set to 'false' or
-    | not specified, the default view 'chart-template.blade.php' built
-    | into the package will be used. You can publish the default
-    | view to your resources folder using an artisan command.
+    | You can add plugins to Charjs for various custom chart types
+    | by adding the name of the chart type and the URL to the plugin.
+    | This is useful for adding custom chart types to the package
+    | without having to modify the package itself.
     |
-    | Available choices are true or false.
+    | Available choices are type labels and urls to CDNs. such as:
+    | 'treemap' => 'https://cdn.jsdelivr.net/npm/chartjs-chart-treemap@2.3.1/dist/chartjs-chart-treemap.min.js'
     |
     */
 
-    'custom_view' => false,
+    'custom_chart_types' => [],
 
 ];
