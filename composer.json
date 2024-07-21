@@ -4,15 +4,6 @@
     "description": "The skeleton application for the Laravel framework.",
     "keywords": ["laravel", "framework"],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/var/www/laravel-chartjs",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
