@@ -6,6 +6,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Collection;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class ExampleController extends Controller
 {
@@ -13,7 +14,7 @@ class ExampleController extends Controller
     public function show()
     {
     
-    $chartjs = app()->chartjs
+    $chartjs = Chartjs::build()
         ->name('lineChartTest')
         ->type('line')
         ->size(['width' => 400, 'height' => 200])

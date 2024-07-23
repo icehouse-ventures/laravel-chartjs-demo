@@ -7,6 +7,7 @@ use Livewire\Component;
 use Carbon\CarbonPeriod;
 use Illuminate\Support\Carbon;
 use Livewire\Attributes\Computed;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class UsersChart extends Component
 {
@@ -58,8 +59,7 @@ class UsersChart extends Component
     #[Computed]
     public function chart()
     {
-        return app()
-            ->chartjs->name("UserRegistrationsChart")
+        return Chartjs::build()->name("UserRegistrationsChart")
             ->livewire()
             ->model("datasets")
             ->type("line")

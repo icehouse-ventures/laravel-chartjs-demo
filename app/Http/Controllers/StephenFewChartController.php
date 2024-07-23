@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class StephenFewChartController extends Controller
 {
@@ -23,7 +24,7 @@ class StephenFewChartController extends Controller
     $dataNewsweek = [350, 250, 170, 180, 190];
 
     // Create the bar chart configuration
-    $chart = app()->chartjs
+    $chart = Chartjs::build()
        ->name('NewsMagazineStaffSize')
        ->type('bar')
        ->size(['width' => 600, 'height' => 400])
@@ -92,7 +93,7 @@ class StephenFewChartController extends Controller
     $dataNewsweek = [350, 250, 170, 180, 200];
 
     // Create the line chart configuration
-    $chart = app()->chartjs
+    $chart = Chartjs::build()
         ->name('TimeVsNewsweekStaffSize')
         ->type('line')
         ->size(['width' => 600, 'height' => 400])

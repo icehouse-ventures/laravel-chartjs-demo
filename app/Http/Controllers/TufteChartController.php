@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class TufteChartController extends Controller
 {
@@ -25,7 +26,7 @@ class TufteChartController extends Controller
         $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
         // Create the baseline chart configuration
-        $chart = app()->chartjs
+        $chart = Chartjs::build()
             ->name('Chart1')
             ->type('bar')
             ->size(['width' => 400, 'height' => 200])
@@ -126,7 +127,7 @@ class TufteChartController extends Controller
         $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
         // Remove vertical gridlines but keep tick marks
-        $chart = app()->chartjs
+        $chart = Chartjs::build()
             ->name('Chart2')
             ->type('bar')
             ->size(['width' => 400, 'height' => 200])
@@ -216,7 +217,7 @@ class TufteChartController extends Controller
         $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
         // Create the more simplified chart configuration
-        $chart = app()->chartjs
+        $chart = Chartjs::build()
             ->name('Chart3')
             ->type('bar')
             ->size(['width' => 400, 'height' => 200])
@@ -289,7 +290,7 @@ class TufteChartController extends Controller
         $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
         // Create the minimalist chart configuration
-        $chart = app()->chartjs
+        $chart = Chartjs::build()
             ->name('Chart4')
             ->type('bar')
             ->size(['width' => 400, 'height' => 200])
@@ -351,7 +352,7 @@ private function createChart5()
     $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
     // Create the chart configuration with negative gridlines
-    $chart = app()->chartjs
+    $chart = Chartjs::build()
         ->name('Chart5')
         ->type('bar')
         ->size(['width' => 400, 'height' => 200])
@@ -430,7 +431,7 @@ private function createChart6()
     $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
     // Create the chart configuration with horizontal gridlines and keyline border
-    $chart = app()->chartjs
+    $chart = Chartjs::build()
         ->name('Chart6')
         ->type('bar')
         ->size(['width' => 400, 'height' => 200])

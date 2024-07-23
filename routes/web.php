@@ -2,6 +2,7 @@
 
 use App\Livewire\UsersChart;
 use App\Livewire\LivewireUsersDemo;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,8 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-
-    $chartjs = app()->chartjs
+    $chartjs = Chartjs::build()
              ->name('barChartTest')
              ->type('bar')
              ->size(['width' => 400, 'height' => 200])
@@ -49,7 +49,7 @@ Route::get('/', function () {
 
 Route::get('/legacy', function () {
 
-    $chartjs = app()->chartjs
+    $chartjs = Chartjs::build()
              ->name('barChartTest')
              ->type('bar')
              ->size(['width' => 400, 'height' => 200])
@@ -81,7 +81,7 @@ Route::get('/legacy', function () {
 
 Route::get('/vanilla-blade', function() {
     // First let's build up our chart's data
-    $chartjs = app()->chartjs
+    $chartjs = Chartjs::build()
         ->name('chartComponentTest')
         ->type('bar')
         ->size(['width' => 400, 'height' => 200])
@@ -113,7 +113,7 @@ Route::get('/vanilla-blade', function() {
 
 Route::get('/vanilla-blade-multi', function() {
     // First let's build up our first chart's data
-    $primaryChart = app()->chartjs
+    $primaryChart = Chartjs::build()
         ->name('chartComponentTest')
         ->type('bar')
         ->size(['width' => 400, 'height' => 200])
@@ -140,7 +140,7 @@ Route::get('/vanilla-blade-multi', function() {
         ]);
 
     // Now a second chart
-    $secondaryChart = app()->chartjs
+    $secondaryChart = Chartjs::build()
              ->name('componentPieChartTest')
              ->type('pie')
              ->size(['width' => 400, 'height' => 200])
