@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class TufteChartController extends Controller
@@ -37,8 +36,8 @@ class TufteChartController extends Controller
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
                     'borderColor' => 'rgba(128, 128, 128, 1)',
                     'borderWidth' => 2,
-                    'data' => $data
-                ]
+                    'data' => $data,
+                ],
             ])
             ->optionsRaw("{
                 scales: {
@@ -138,8 +137,8 @@ class TufteChartController extends Controller
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
                     'borderColor' => 'rgba(128, 128, 128, 1)',
                     'borderWidth' => 1,
-                    'data' => $data
-                ]
+                    'data' => $data,
+                ],
             ])
             ->optionsRaw("{
                 scales: {
@@ -226,8 +225,8 @@ class TufteChartController extends Controller
                 [
                     'label' => 'Monthly User Registrations',
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
-                    'data' => $data
-                ]
+                    'data' => $data,
+                ],
             ])
             ->optionsRaw("{
                 scales: {
@@ -298,8 +297,8 @@ class TufteChartController extends Controller
             ->datasets([
                 [
                     'backgroundColor' => 'rgba(200, 200, 200, 1)',
-                    'data' => $data
-                ]
+                    'data' => $data,
+                ],
             ])
             ->optionsRaw("{
                 scales: {
@@ -345,26 +344,26 @@ class TufteChartController extends Controller
 
     // ...
 
-private function createChart5()
-{
-    // Sample data for demonstration purposes
-    $labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
+    private function createChart5()
+    {
+        // Sample data for demonstration purposes
+        $labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
-    // Create the chart configuration with negative gridlines
-    $chart = Chartjs::build()
-        ->name('Chart5')
-        ->type('bar')
-        ->size(['width' => 400, 'height' => 200])
-        ->labels($labels)
-        ->datasets([
-            [
-                'label' => 'Monthly User Registrations',
-                'backgroundColor' => 'rgba(200, 200, 200, 1)',
-                'data' => $data
-            ]
-        ])
-        ->optionsRaw("{
+        // Create the chart configuration with negative gridlines
+        $chart = Chartjs::build()
+            ->name('Chart5')
+            ->type('bar')
+            ->size(['width' => 400, 'height' => 200])
+            ->labels($labels)
+            ->datasets([
+                [
+                    'label' => 'Monthly User Registrations',
+                    'backgroundColor' => 'rgba(200, 200, 200, 1)',
+                    'data' => $data,
+                ],
+            ])
+            ->optionsRaw("{
             scales: {
                 x: {
                     border:{
@@ -421,29 +420,29 @@ private function createChart5()
             }
         }");
 
-    return $chart;
-}
+        return $chart;
+    }
 
-private function createChart6()
-{
-    // Sample data for demonstration purposes
-    $labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
+    private function createChart6()
+    {
+        // Sample data for demonstration purposes
+        $labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        $data = [65, 59, 80, 81, 56, 55, 40, 65, 75, 64, 56, 70];
 
-    // Create the chart configuration with horizontal gridlines and keyline border
-    $chart = Chartjs::build()
-        ->name('Chart6')
-        ->type('bar')
-        ->size(['width' => 400, 'height' => 200])
-        ->labels($labels)
-        ->datasets([
-            [
-                'label' => 'User Registrations',
-                'backgroundColor' => 'rgba(200, 200, 200, 1)',
-                'data' => $data
-            ]
-        ])
-        ->optionsRaw("{
+        // Create the chart configuration with horizontal gridlines and keyline border
+        $chart = Chartjs::build()
+            ->name('Chart6')
+            ->type('bar')
+            ->size(['width' => 400, 'height' => 200])
+            ->labels($labels)
+            ->datasets([
+                [
+                    'label' => 'User Registrations',
+                    'backgroundColor' => 'rgba(200, 200, 200, 1)',
+                    'data' => $data,
+                ],
+            ])
+            ->optionsRaw("{
             scales: {
                 x: {
                     border:{
@@ -494,7 +493,6 @@ private function createChart6()
             }
         }");
 
-    return $chart;
-}
-
+        return $chart;
+    }
 }

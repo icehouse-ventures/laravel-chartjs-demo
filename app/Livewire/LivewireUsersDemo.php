@@ -3,19 +3,21 @@
 namespace App\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
 use Carbon\CarbonPeriod;
+use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 use Illuminate\Support\Carbon;
 use Livewire\Attributes\Computed;
-use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
+use Livewire\Component;
 
 class LivewireUsersDemo extends Component
 {
     public $start;
 
+    public $datasets;
+
     public function mount()
     {
-        $this->start = Carbon::parse(User::min("created_at"))->toDateString();
+        $this->start = Carbon::parse(User::min('created_at'))->toDateString();
     }
 
     #[Computed]
@@ -27,30 +29,30 @@ class LivewireUsersDemo extends Component
     public function getData()
     {
         $end = Carbon::now();
-        $period = CarbonPeriod::create($this->carbonStart, "1 month", $end);
+        $period = CarbonPeriod::create($this->carbonStart, '1 month', $end);
 
         $usersPerMonth = collect($period)->map(function ($date) {
             $endDate = $date->copy()->endOfMonth();
 
             return [
-                "count" => User::where("created_at", "<=", $endDate)->count(),
-                "month" => $endDate->format("Y-m-d")
+                'count' => User::where('created_at', '<=', $endDate)->count(),
+                'month' => $endDate->format('Y-m-d'),
             ];
         });
 
-        $data = $usersPerMonth->pluck("count")->toArray();
-        $labels = $usersPerMonth->pluck("month")->toArray();
+        $data = $usersPerMonth->pluck('count')->toArray();
+        $labels = $usersPerMonth->pluck('month')->toArray();
 
         $this->datasets = [
             'datasets' => [
                 [
-                    "label" => "User Registrations",
-                    "backgroundColor" => "rgba(38, 185, 154, 0.31)",
-                    "borderColor" => "rgba(38, 185, 154, 0.7)",
-                    "data" => $data
-                ]
+                    'label' => 'User Registrations',
+                    'backgroundColor' => 'rgba(38, 185, 154, 0.31)',
+                    'borderColor' => 'rgba(38, 185, 154, 0.7)',
+                    'data' => $data,
+                ],
             ],
-            'labels' => $labels
+            'labels' => $labels,
         ];
     }
 
@@ -60,26 +62,26 @@ class LivewireUsersDemo extends Component
         $this->getData();
 
         return Chartjs::build()
-            ->name("UserRegistrationsChart")
-            ->model("datasets")
-            ->type("line")
-            ->size(["width" => 400, "height" => 200])
+            ->name('UserRegistrationsChart')
+            ->model('datasets')
+            ->type('line')
+            ->size(['width' => 400, 'height' => 200])
             ->options([
                 'scales' => [
                     'x' => [
                         'type' => 'time',
                         'time' => [
-                            'unit' => 'month'
+                            'unit' => 'month',
                         ],
-                        'min' => $this->carbonStart->format("Y-m-d"),
-                    ]
+                        'min' => $this->carbonStart->format('Y-m-d'),
+                    ],
                 ],
                 'plugins' => [
                     'title' => [
                         'display' => true,
-                        'text' => 'Monthly User Registrations'
-                    ]
-                ]
+                        'text' => 'Monthly User Registrations',
+                    ],
+                ],
             ])
             ->labels($this->datasets['labels'])
             ->datasets($this->datasets['datasets']);

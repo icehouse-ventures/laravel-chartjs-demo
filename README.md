@@ -1,71 +1,91 @@
-## About The Laravel Chartjs Package Demo
+# Laravel Chart.js demo
 
-This repository is dedicated to demonstrating the capabilities of the [Laravel Chartjs package](https://github.com/icehouse-ventures/laravel-chartjs), which is a powerful interface for integrating Chart.js version 4 into Laravel applications. With a focus on the latest Chart.js features, this demo provides a comprehensive look at the extensive chart options available, including new chart types, animations, and interactivity enhancements.
+This application is the integration demo for the community-maintained
+[Laravel Chart.js package](https://github.com/icehouse-ventures/laravel-chartjs).
+It exercises Chart.js 4 through legacy rendering, Blade components, multiple
+charts on one page, and reactive Livewire charts.
 
-### Models: UserController Example
+## Requirements
 
-Included in this repository is a `UserController` example that illustrates how to implement user-related data visualizations using Chart.js version 4. It serves as a practical guide for developers looking to add interactive and customizable charts to their Laravel projects, with detailed examples on utilizing the advanced design and chart options provided by Chart.js.
+- PHP 8.3 or newer
+- Composer
+- Node.js 20.19 or newer (Node.js 22.12+ is also supported)
+- SQLite
 
-![User Chart Example](public/laravel-demo-user-chart.png)
+## Local setup
 
-### Chart Design: Tufte Data-Ink Ratio Examples
-
-The demo repository features Tufte chart examples, which are designed to display complex data in a clear and beautiful way, following the principles of Edward Tufte. These examples help in creating elegant and informative charts that enhance the data presentation, while also demonstrating how to apply the data-ink ratio concept using Chart.js design options to make your charts as informative as possible with minimal distractions.
-
-![Tufte Chart Progression Examples](public/tufte-chart-progression-examples.png)
-
-### Chart Design: Stephen Few Chart Makeover Examples
-
-This repository also includes examples of Stephen Few chart makeovers, which are designed to present complex data in a clear and engaging manner, adhering to the principles of Stephen Few, an expert in dashboard and chart design. These examples embody Few's philosophy of simplicity and clarity in data visualization, emphasizing the elimination of unnecessary elements to focus on the data itself. They serve as a practical guide for creating elegant and informative charts that enhance data presentation. They demonstrate how to apply Stephen Few's design principles using Chart.js to make your graphs as informative as possible with minimal distractions, in line with his "less is more" approach to data visualization.
-![Stephen Few Makeover Examples](public/stephen-few-makeover.png)
-
-## Getting Started
-
-To get started with the Laravel Chartjs package demo, clone the repository and follow the setup instructions provided in the [Laravel Chart.js User Guide](https://icehouse-ventures.github.io/laravel-chartjs/). Explore the various chart examples to learn how to integrate and customize charts in your own Laravel applications.
-
-You can run the app using php artisan serve or any local development environment such as Valet or Herd. In which, case the demo pages will be available at:
-
-- /legacy
-- /user/chart
-- /tufte/charts
-- /stephenfew/charts
-
-## Quick start with Docker
-
-To run the examples locally via Docker (if you're on MacOS, [use Orbstack](https://orbstack.dev/) to solve file system performance woes!), first build the services:
-
-```
-docker-compose build
-```
-
-Copy the `.env.example` file:
-
-```
+```bash
+composer install
 cp .env.example .env
+php artisan key:generate
+touch database/database.sqlite
+php artisan migrate --seed
+npm install
+npm run build
+php artisan serve
 ```
 
-Then start the services:
+Open the URL printed by Artisan. The landing page links to the examples:
 
+- `/legacy` – legacy string renderer
+- `/vanilla-blade` – Blade chart component
+- `/vanilla-blade-multi` – multiple independent charts
+- `/livewire-users-demo` – Blade component inside Livewire
+- `/user/chart` – reactive Livewire chart
+- `/tufte/charts` – Tufte data-ink progression
+- `/stephenfew/charts` – Stephen Few chart makeover
+
+## Test a local package checkout
+
+Place this repository beside `laravel-chartjs`, then point Composer at the
+working tree:
+
+```bash
+composer config repositories.local-chartjs path ../laravel-chartjs
+composer require icehouse-ventures/laravel-chartjs:dev-master --with-all-dependencies
+readlink vendor/icehouse-ventures/laravel-chartjs
 ```
+
+Composer symlinks the package, so changes in the package checkout are reflected
+immediately. Remove the local repository override before preparing a standalone
+demo release:
+
+```bash
+composer config --unset repositories.local-chartjs
+```
+
+## Quality checks
+
+```bash
+composer check
+npm audit
+npm run build
+```
+
+The feature suite renders every example route and exercises both Livewire chart
+components against an in-memory SQLite database.
+
+## Docker
+
+The repository also includes a Docker-based workflow:
+
+```bash
+docker-compose build
+cp .env.example .env
 ./bin/up
-```
-
-Run the init command to install dependencies etc:
-
-```
 ./bin/init
 ```
 
-When you're done, shut down the services with:
+Use `./bin/down` when finished.
 
-```
-./bin/down
-```
+## Contributing
 
-## Contributions
-
-Contributions are welcome! If you have any improvements or additional examples, please feel free to submit a pull request.
+Contributions are welcome from everyone. Bug reproductions, accessibility and
+design improvements, additional chart examples, documentation fixes, and
+compatibility updates are all useful. Please open an issue or pull request in
+this repository or the package repository.
 
 ## License
 
-This demo is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Laravel Chart.js demo is open-source software licensed under the
+[MIT license](https://opensource.org/licenses/MIT).

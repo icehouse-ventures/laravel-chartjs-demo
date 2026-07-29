@@ -7,19 +7,17 @@
     "require": {
         "php": "^8.3",
         "guzzlehttp/guzzle": "^7.2",
-        "icehouse-ventures/laravel-chartjs": "*",
-        "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.4"
+        "icehouse-ventures/laravel-chartjs": "dev-master",
+        "laravel/framework": "^13.0",
+        "livewire/livewire": "^4.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^8.0",
-        "phpunit/phpunit": "^10.1",
-        "spatie/laravel-ignition": "^2.0"
+        "nunomaduro/collision": "^8.9.5",
+        "phpunit/phpunit": "^12.5"
     },
     "autoload": {
         "psr-4": {
@@ -46,7 +44,13 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
-        ]
+        ],
+        "check": [
+            "@lint",
+            "@test"
+        ],
+        "lint": "pint --test app bootstrap/app.php config database routes tests",
+        "test": "phpunit"
     },
     "extra": {
         "laravel": {
@@ -55,6 +59,9 @@
     },
     "config": {
         "optimize-autoloader": true,
+        "platform": {
+            "php": "8.3.0"
+        },
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {

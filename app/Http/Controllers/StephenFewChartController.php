@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 
 class StephenFewChartController extends Controller
@@ -18,34 +17,34 @@ class StephenFewChartController extends Controller
 
     private function createChart1()
     {
-    // Static sample data
-    $labels = ['1983', '1993', '2003', '2004', '2005'];
-    $dataTime = [360, 320, 310, 290, 260];
-    $dataNewsweek = [350, 250, 170, 180, 190];
+        // Static sample data
+        $labels = ['1983', '1993', '2003', '2004', '2005'];
+        $dataTime = [360, 320, 310, 290, 260];
+        $dataNewsweek = [350, 250, 170, 180, 190];
 
-    // Create the bar chart configuration
-    $chart = Chartjs::build()
-       ->name('NewsMagazineStaffSize')
-       ->type('bar')
-       ->size(['width' => 600, 'height' => 400])
-       ->labels($labels)
-       ->datasets([
-           [
-               'label' => 'Time',
-               'backgroundColor' => '#59666D',
-               'data' => $dataTime,
-               'barPercentage' => 1.0,
-               'categoryPercentage' => 0.8
-           ],
-           [
-               'label' => 'Newsweek',
-               'backgroundColor' => '#AB4331',
-               'data' => $dataNewsweek,
-               'barPercentage' => 1.0,
-               'categoryPercentage' => 0.8
-           ]
-       ])
-       ->optionsRaw("{
+        // Create the bar chart configuration
+        $chart = Chartjs::build()
+            ->name('NewsMagazineStaffSize')
+            ->type('bar')
+            ->size(['width' => 600, 'height' => 400])
+            ->labels($labels)
+            ->datasets([
+                [
+                    'label' => 'Time',
+                    'backgroundColor' => '#59666D',
+                    'data' => $dataTime,
+                    'barPercentage' => 1.0,
+                    'categoryPercentage' => 0.8,
+                ],
+                [
+                    'label' => 'Newsweek',
+                    'backgroundColor' => '#AB4331',
+                    'data' => $dataNewsweek,
+                    'barPercentage' => 1.0,
+                    'categoryPercentage' => 0.8,
+                ],
+            ])
+            ->optionsRaw("{
            scales: {
                x: {
                    grid: {
@@ -82,49 +81,49 @@ class StephenFewChartController extends Controller
            maintainAspectRatio: true
        }");
 
-    return $chart;
+        return $chart;
     }
 
     private function createChart2()
     {
-    // Static sample data
-    $labels = ['1983', '1993', '2003', '2004', '2005'];
-    $dataTime = [360, 320, 310, 290, 260];
-    $dataNewsweek = [350, 250, 170, 180, 200];
+        // Static sample data
+        $labels = ['1983', '1993', '2003', '2004', '2005'];
+        $dataTime = [360, 320, 310, 290, 260];
+        $dataNewsweek = [350, 250, 170, 180, 200];
 
-    // Create the line chart configuration
-    $chart = Chartjs::build()
-        ->name('TimeVsNewsweekStaffSize')
-        ->type('line')
-        ->size(['width' => 600, 'height' => 400])
-        ->labels($labels)
-        ->datasets([
-            [
-                'label' => 'Time Magazine',
-                'backgroundColor' => '#A7BE82',
-                'borderColor' => '#A7BE82',
-                'data' => $dataTime,
-                'fill' => false,
-                'pointBackgroundColor' => '#A7BE82',
-                'pointBorderColor' => '#A7BE82',
-                'pointHoverBackgroundColor' => '#A7BE82',
-                'pointHoverBorderColor' => '#A7BE82',
-                'pointRadius' => '4'
-            ],
-            [
-                'label' => 'Newsweek',
-                'backgroundColor' => '#58A2D3',
-                'borderColor' => '#58A2D3',
-                'data' => $dataNewsweek,
-                'fill' => false,
-                'pointBackgroundColor' => '#58A2D3',
-                'pointBorderColor' => '#58A2D3',
-                'pointHoverBackgroundColor' => '#58A2D3',
-                'pointHoverBorderColor' => '#58A2D3',
-                'pointRadius' => '4'
-            ]
-        ])
-        ->optionsRaw("{
+        // Create the line chart configuration
+        $chart = Chartjs::build()
+            ->name('TimeVsNewsweekStaffSize')
+            ->type('line')
+            ->size(['width' => 600, 'height' => 400])
+            ->labels($labels)
+            ->datasets([
+                [
+                    'label' => 'Time Magazine',
+                    'backgroundColor' => '#A7BE82',
+                    'borderColor' => '#A7BE82',
+                    'data' => $dataTime,
+                    'fill' => false,
+                    'pointBackgroundColor' => '#A7BE82',
+                    'pointBorderColor' => '#A7BE82',
+                    'pointHoverBackgroundColor' => '#A7BE82',
+                    'pointHoverBorderColor' => '#A7BE82',
+                    'pointRadius' => '4',
+                ],
+                [
+                    'label' => 'Newsweek',
+                    'backgroundColor' => '#58A2D3',
+                    'borderColor' => '#58A2D3',
+                    'data' => $dataNewsweek,
+                    'fill' => false,
+                    'pointBackgroundColor' => '#58A2D3',
+                    'pointBorderColor' => '#58A2D3',
+                    'pointHoverBackgroundColor' => '#58A2D3',
+                    'pointHoverBorderColor' => '#58A2D3',
+                    'pointRadius' => '4',
+                ],
+            ])
+            ->optionsRaw("{
             scales: {
                 x: {
                     type: 'time',
@@ -162,8 +161,6 @@ class StephenFewChartController extends Controller
             maintainAspectRatio: true
         }");
 
-    return $chart;
+        return $chart;
     }
-
-
 }
