@@ -1,7 +1,10 @@
 <?php
 
-use App\Livewire\UsersChart;
+use App\Http\Controllers\ExampleController;
+use App\Http\Controllers\StephenFewChartController;
+use App\Http\Controllers\TufteChartController;
 use App\Livewire\LivewireUsersDemo;
+use App\Livewire\UsersChart;
 use IcehouseVentures\LaravelChartjs\Facades\Chartjs;
 use Illuminate\Support\Facades\Route;
 
@@ -18,31 +21,31 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     $chartjs = Chartjs::build()
-             ->name('barChartTest')
-             ->type('bar')
-             ->size(['width' => 400, 'height' => 200])
-             ->labels(['Label A', 'Label B', 'Label C'])
-             ->datasets([
-                 [
-                     "label" => "My First Dataset",
-                     'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
-                     'data' => [69, 59, 42]
-                 ],
-                 [
-                     "label" => "My Second Dataset",
-                     'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
-                     'data' => [65, 32, 40]
-                 ]
-             ])
-             ->options([
-                    'plugins' =>[
-                        'title' => [
-                            'display' => true,
-                            'text' => 'Chart.js'
-                            ]
-                    ]
+        ->name('barChartTest')
+        ->type('bar')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['Label A', 'Label B', 'Label C'])
+        ->datasets([
+            [
+                'label' => 'My First Dataset',
+                'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
+                'data' => [69, 59, 42],
+            ],
+            [
+                'label' => 'My Second Dataset',
+                'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
+                'data' => [65, 32, 40],
+            ],
+        ])
+        ->options([
+            'plugins' => [
+                'title' => [
+                    'display' => true,
+                    'text' => 'Chart.js',
+                ],
+            ],
 
-             ]);
+        ]);
 
     return view('welcome', compact('chartjs'));
 });
@@ -50,36 +53,36 @@ Route::get('/', function () {
 Route::get('/legacy', function () {
 
     $chartjs = Chartjs::build()
-             ->name('barChartTest')
-             ->type('bar')
-             ->size(['width' => 400, 'height' => 200])
-             ->labels(['Label A', 'Label B', 'Label C'])
-             ->datasets([
-                 [
-                     "label" => "My First Dataset",
-                     'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
-                     'data' => [69, 59, 42]
-                 ],
-                 [
-                     "label" => "My Second Dataset",
-                     'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
-                     'data' => [65, 32, 40]
-                 ]
-             ])
-             ->options([
-                    'plugins' =>[
-                        'title' => [
-                            'display' => true,
-                            'text' => 'Chart.js'
-                            ]
-                    ]
+        ->name('barChartTest')
+        ->type('bar')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['Label A', 'Label B', 'Label C'])
+        ->datasets([
+            [
+                'label' => 'My First Dataset',
+                'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
+                'data' => [69, 59, 42],
+            ],
+            [
+                'label' => 'My Second Dataset',
+                'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
+                'data' => [65, 32, 40],
+            ],
+        ])
+        ->options([
+            'plugins' => [
+                'title' => [
+                    'display' => true,
+                    'text' => 'Chart.js',
+                ],
+            ],
 
-             ]);
+        ]);
 
     return view('welcome_5', compact('chartjs'));
 });
 
-Route::get('/vanilla-blade', function() {
+Route::get('/vanilla-blade', function () {
     // First let's build up our chart's data
     $chartjs = Chartjs::build()
         ->name('chartComponentTest')
@@ -88,30 +91,30 @@ Route::get('/vanilla-blade', function() {
         ->labels(['Label A', 'Label B', 'Label C'])
         ->datasets([
             [
-                "label" => "My First Dataset",
+                'label' => 'My First Dataset',
                 'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
                 'data' => [69, 59, 42],
             ],
             [
-                "label" => "My Second Dataset",
+                'label' => 'My Second Dataset',
                 'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
                 'data' => [65, 32, 40],
             ],
         ])
         ->options([
-            'plugins' =>[
+            'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => 'Chart.js'
+                    'text' => 'Chart.js',
                 ],
             ],
         ]);
 
     // Then render a standard Blade view, which will include a component that renders the chart
-    return view('vanilla-blade', ['chart' => $chartjs,]);
+    return view('vanilla-blade', ['chart' => $chartjs]);
 });
 
-Route::get('/vanilla-blade-multi', function() {
+Route::get('/vanilla-blade-multi', function () {
     // First let's build up our first chart's data
     $primaryChart = Chartjs::build()
         ->name('chartComponentTest')
@@ -120,38 +123,38 @@ Route::get('/vanilla-blade-multi', function() {
         ->labels(['Label A', 'Label B', 'Label C'])
         ->datasets([
             [
-                "label" => "My First Dataset",
+                'label' => 'My First Dataset',
                 'backgroundColor' => 'rgba(54, 162, 235, 0.2)',
                 'data' => [69, 59, 42],
             ],
             [
-                "label" => "My Second Dataset",
+                'label' => 'My Second Dataset',
                 'backgroundColor' => 'rgba(255, 99, 132, 0.3)',
                 'data' => [65, 32, 40],
             ],
         ])
         ->options([
-            'plugins' =>[
+            'plugins' => [
                 'title' => [
                     'display' => true,
-                    'text' => 'Chart.js'
+                    'text' => 'Chart.js',
                 ],
             ],
         ]);
 
     // Now a second chart
     $secondaryChart = Chartjs::build()
-             ->name('componentPieChartTest')
-             ->type('pie')
-             ->size(['width' => 400, 'height' => 200])
-             ->labels(['Label x', 'Label y'])
-             ->datasets([
-                 [
-                     'backgroundColor' => ['#FF6384', '#36A2EB'],
-                     'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
-                     'data' => [69, 59]
-                 ],
-            ]);
+        ->name('componentPieChartTest')
+        ->type('pie')
+        ->size(['width' => 400, 'height' => 200])
+        ->labels(['Label x', 'Label y'])
+        ->datasets([
+            [
+                'backgroundColor' => ['#FF6384', '#36A2EB'],
+                'hoverBackgroundColor' => ['#FF6384', '#36A2EB'],
+                'data' => [69, 59],
+            ],
+        ]);
 
     // Then render a standard Blade view, which will include 2x components that renders these two charts
     return view('vanilla-blade-multi', [
@@ -162,10 +165,10 @@ Route::get('/vanilla-blade-multi', function() {
 
 Route::get('/livewire-users-demo', LivewireUsersDemo::class);
 
-Route::get('/example', 'App\Http\Controllers\ExampleController@show');
+Route::get('/example', [ExampleController::class, 'show']);
 
 Route::get('/user/chart', UsersChart::class);
 
-Route::get('/tufte/charts', 'App\Http\Controllers\TufteChartController@showCharts');
+Route::get('/tufte/charts', [TufteChartController::class, 'showCharts']);
 
-Route::get('/stephenfew/charts', 'App\Http\Controllers\StephenFewChartController@showCharts');
+Route::get('/stephenfew/charts', [StephenFewChartController::class, 'showCharts']);
